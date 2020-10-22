@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dcb95c9-7b2b-4077-9e0c-8c82ec5fddee" name="Default Changelist" comment="">
+    <list default="true" id="5dcb95c9-7b2b-4077-9e0c-8c82ec5fddee" name="Default Changelist" comment="20201021 15：53">
       <change afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -12,12 +12,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../leetcode/editor/cn/[94]二叉树的中序遍历.py">
+        <entry file="file://$PROJECT_DIR$/editor/cn/[96]不同的二叉搜索树.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="59" column="30" lean-forward="true" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+            <state relative-caret-position="399">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editor/cn/[79]单词搜索.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="82" column="14" lean-forward="true" selection-start-line="74" selection-end-line="82" selection-end-column="14" />
+            <state relative-caret-position="505">
+              <caret line="82" column="14" selection-start-line="74" selection-end-line="82" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -41,6 +41,7 @@
       <list>
         <option value="$PROJECT_DIR$/editor/cn/[85]最大矩形.py" />
         <option value="$PROJECT_DIR$/../leetcode/editor/cn/[94]二叉树的中序遍历.py" />
+        <option value="$PROJECT_DIR$/editor/cn/[96]不同的二叉搜索树.py" />
       </list>
     </option>
   </component>
@@ -87,6 +88,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\python\pycharm\project\leetcode\leetcode_pr\editor\cn" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -163,7 +169,8 @@
       <option name="presentableId" value="Default" />
       <updated>1603244535037</updated>
       <workItem from="1603244554615" duration="7922000" />
-      <workItem from="1603267488945" duration="6250000" />
+      <workItem from="1603267488945" duration="7546000" />
+      <workItem from="1603356188486" duration="1811000" />
     </task>
     <task id="LOCAL-00001" summary="20201021 15：53">
       <created>1603266833686</created>
@@ -172,21 +179,35 @@
       <option name="project" value="LOCAL" />
       <updated>1603266833686</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20201021 17：51">
+      <created>1603273898190</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603273898190</updated>
+    </task>
+    <task id="LOCAL-00003" summary="20201021 18：53">
+      <created>1603276070401</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603276070401</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14172000" />
+    <option name="totallyTimeSpent" value="17279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14151576" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14352784" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -210,7 +231,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20201021 15：53" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201021 15：53" />
+    <MESSAGE value="20201021 17：51" />
+    <MESSAGE value="20201021 18：53" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201021 18：53" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/leetcode_pr$_94_.coverage" NAME="[94]二叉树的中序遍历 Coverage Results" MODIFIED="1603273526450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../leetcode/editor/cn" />
@@ -241,17 +264,34 @@
         <state relative-caret-position="-399" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editor/cn/[79]单词搜索.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="82" column="14" lean-forward="true" selection-start-line="74" selection-end-line="82" selection-end-column="14" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/editor/cn/[94]二叉树的中序遍历.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../leetcode/editor/cn/[94]二叉树的中序遍历.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="59" column="30" lean-forward="true" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+          <caret line="59" selection-start-line="59" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../leetcode/editor/cn/[96]不同的二叉搜索树.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/cn/[79]单词搜索.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="82" column="14" selection-start-line="74" selection-end-line="82" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/cn/[96]不同的二叉搜索树.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

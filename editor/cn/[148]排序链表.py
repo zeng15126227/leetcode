@@ -43,10 +43,76 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+         self.val = val
+         self.next = next
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
+
+        if not head or not head.next:
+            return head
+        len=0
+        #求链表长度
+        while p:
+            len+=1
+            p=p.next
+        #哨兵
+        root = ListNode()
+        root.next = head
+        #归并规模
+        intv=1
+        p=root
+        cur = root.next
+        while intv<len:
+            while cur:
+                # 第一个链表
+                n = intv
+                l1 = cur
+                while cur and n:
+                    cur = cur.next
+                    n -= 1
+                # 第一个戴合并链表长度未达到规模
+                if n:
+                    break
+                # 第二个链表
+                n = intv
+                l2 = cur
+                while cur and n:
+                    cur = cur.next
+                    n -= 1
+                #l1,l2长度
+                c1 = intv
+                c2 = intv - n
+                #合并
+                while c1 and c2:
+                    if l1.val<=l2.val:
+                        p.next=l1
+                        l1=l1.next
+                        c1-=1
+                    else:
+                        p.next=l2
+                        l2=l2.next
+                        c2-=1
+                    p=p.next
+                p.next=l1 if c1 else l2
+                while c1 or c2:
+                    p=p.next
+                    c1-=1
+                    c2-=1
+
+
+
+
+
+
+
+            intv = intv * 2
+
+
+
+
+
+        return
+
 # leetcode submit region end(Prohibit modification and deletion)

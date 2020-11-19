@@ -20,7 +20,7 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums: list[int]) -> int:
         count = 0
         candidate = None
 

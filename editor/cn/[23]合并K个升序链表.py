@@ -55,18 +55,13 @@ class ListNode:
 class Solution:
     def mergeKLists(self, lists: list) -> ListNode:
 
-
-
         def merge(list,left,right):
             if left==right:
                 return list[left]
-            mid = (left+right)/2
-            merge(list,)
+            mid = (left+right)//2
+            return mergeTwoLists(merge(lists, left, mid), merge(lists, mid + 1, right));
 
-
-
-
-        def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
             node1 = l1
             node2 = l2
             res = ListNode()
@@ -75,12 +70,11 @@ class Solution:
             while node1 and node2:
                 if node1.val < node2.val:
                     tmp.next = node1
-                    tmp = tmp.next
                     node1 = node1.next
                 else:
                     tmp.next = node2
-                    tmp = tmp.next
                     node2 = node2.next
+                tmp = tmp.next
             if node1:
                 tmp.next = node1
             if node2:
@@ -88,10 +82,10 @@ class Solution:
 
             return res.next
 
+        if len(lists) == 0: return None
+        return merge(lists,0,len(lists)-1)
         
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    left=5
-    right=8
-    mid = (left + right)//2
-    print(mid)
+    a = []
+    print()

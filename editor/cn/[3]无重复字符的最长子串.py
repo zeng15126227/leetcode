@@ -28,25 +28,29 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        #sub = {}
-        #字串开始位置
-        #sub_start=0
-        #sub_max = 0
-        #for i in range(len(s)):
-        #   if s[i] in sub:
-        #        sub_start = max(sub[s[i]]+1, sub_start)
-        #    sub_max = max(sub_max, i - sub_start + 1)
-        #    sub[s[i]]=i
-        #return sub_max;
-        sub = {}
-        sub_start, sub_max = 0, 0
-        for j in range(len(s)):
-            if s[j] in sub:
-                sub_max = max(sub_max, j - sub_start)
-                sub_start = max(sub[s[j]], sub_start)
-            sub[s[j]] = j + 1
-        sub_max = max(sub_max, j - sub_start + 1)
-        return sub_max;
+        remSet=set()
+        length = len(s)
+        res=0
+        left,right=0,0
+
+        for left in range(length):
+
+            if left!=0:
+                remSet.remove(s[left-1])
+
+
+            while (right < length and s[right] not in remSet):
+                remSet.add(s[right])
+                right += 1
+
+            res = max(res,right-left)
+
+
+
+        return res
+
+
+
 
 
 
@@ -56,6 +60,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    res=Solution().lengthOfLongestSubstring("abcabcbb")
+    res=Solution().lengthOfLongestSubstring("pwwkew")
     print(res)
 

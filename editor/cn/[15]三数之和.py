@@ -48,6 +48,6 @@ class Solution:
 
 if __name__ == "__main__":
     #[-4, -3, -2, -1, -1, 0, 0, 1, 2, 3, 4]
-    res = Solution().threeSum([-1,0,1,2,-1,-4,-2,-3,3,0,4])
+    res = Solution().threeSum([-1,0,1,2,-1,-4])
     print(res)
     

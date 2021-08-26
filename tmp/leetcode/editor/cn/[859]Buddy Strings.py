@@ -89,7 +89,6 @@ class Solution(object):
                     return False
                 else:
                     return True
-        return False
 
 
 # leetcode submit region end(Prohibit modification and deletion)

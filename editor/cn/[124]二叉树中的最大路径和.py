@@ -37,9 +37,12 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
+
     def __init__(self):
-        self.max_ret = float("-inf")
+        self.maxSum = float("-inf")
 
     def maxPathSum(self, root: TreeNode) -> int:
 
@@ -47,22 +50,27 @@ class Solution:
             if not node:
                 return 0
             else:
-                left=max(fs(node.left),0)
-                right=max(fs(node.right),0)
-                res =  max(left,right)
-                self.max_ret = max(res+node.val,self.max_ret,left+node.val+right)
-            return res+node.val
-
+                # 只有大于0的贡献值才算入，小于0则不选择
+                left = max(fs(node.left), 0)
+                right = max(fs(node.right), 0)
+                #计算该节点路径和
+                cur_node = left + node.val + right
+                #更新结果
+                self.maxSum = max(self.maxSum, cur_node)
+            #返回该节点的最大贡献值，是单路径
+            return max(left,right) + node.val
 
         fs(root)
-        return self.max_ret
+        return self.maxSum
+
+
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    root=TreeNode(1)
-    b=TreeNode(2)
-    c=TreeNode(3)
-    root.left=b
-    root.right=c
+    root = TreeNode(1)
+    b = TreeNode(2)
+    c = TreeNode(3)
+    root.left = b
+    root.right = c
 
     res = Solution().maxPathSum(root)
     print(res)

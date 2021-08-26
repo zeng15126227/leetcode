@@ -27,21 +27,19 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        pre=None
-        remove=head
-        flag=head
-        res=None
 
-        for i in range(n-1):
-            flag=flag.next
-        while flag.next:
-            flag=flag.next
-            pre=remove
-            remove=remove.next
-        if pre is None:
-            return head.next
-        pre.next=remove.next
-        return head
+        res=ListNode(0)
+        res.next=head
+        first = res
+        second = res
+
+        for i in range(n):
+            first=first.next
+        while first.next:
+            first=first.next
+            second=second.next
+        second.next=second.next.next
+        return res.next
 
     def printNode(self,node:ListNode):
         print(node.val)
@@ -56,13 +54,13 @@ class Solution:
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
     l1 = ListNode(1)
-    l2 = ListNode(2)
-    l3 = ListNode(3)
-    l4 = ListNode(4)
-    l5 = ListNode(5)
-    l1.next=l2
-    l2.next=l3
-    l3.next=l4
-    l4.next=l5
-    res = Solution().removeNthFromEnd(l1,2)
+    # l2 = ListNode(2)
+    # l3 = ListNode(3)
+    # l4 = ListNode(4)
+    # l5 = ListNode(5)
+    # l1.next=l2
+    # l2.next=l3
+    # l3.next=l4
+    # l4.next=l5
+    res = Solution().removeNthFromEnd(l1,1)
     Solution().printNode(res)

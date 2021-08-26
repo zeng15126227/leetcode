@@ -59,6 +59,7 @@ class Solution:
                     stack=[]
                     stack.append((i,j))
                     while stack:
+                        #访问过后重置为0
                         x,y=stack.pop(0)
                         grid[x][y]=0
                         if 0<=x<m and 0<=y-1<n and grid[x][y - 1] == "1":

@@ -19,50 +19,49 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
      def letterCombinations(self, digits: str) -> list:
-    #
-    #
-    #     if digits == '':
-    #         return []
-    #
-    #     dic = {"2": "abc","3": "def","4": "ghi","5": "jkl","6": "mno","7": "pqrs","8": "tuv","9": "wxyz"}
-    #     index=0
-    #
-    #     queue = []
-    #     for j in dic[digits[0]]:
-    #         queue.append(j)
-    #
-    #     i=1
-    #     while i<len(digits):
-    #         cnode=dic[digits[i]]
-    #         qlens=len(queue)
-    #         for k1 in queue[index:]:
-    #             for k2 in cnode:
-    #                 queue.append(k1+k2)
-    #         index = qlens
-    #         i+=1
-    #
-    #     return queue[index:]
 
-
-        def dfs(cstr, index):
-            if index >= l:
-                res.append(cstr)
-                return
-            for i in dic[digits[index]]:
-                dfs(cstr + i, index + 1)
 
         if digits == '':
             return []
 
-        l = len(digits)
-        res = []
+        dic = {"2": "abc","3": "def","4": "ghi","5": "jkl","6": "mno","7": "pqrs","8": "tuv","9": "wxyz"}
+        index=0
 
-        dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        queue = []
+        for j in dic[digits[0]]:
+            queue.append(j)
 
-        dfs("", 0)
+        i=1
+        while i<len(digits):
+            cnode=dic[digits[i]]
+            qlens=len(queue)
+            for k1 in queue[index:]:
+                for k2 in cnode:
+                    queue.append(k1+k2)
+            index = qlens
+            i+=1
 
-        return res
+        return queue[index:]
 
+
+        # def dfs(cstr, index):
+        #     if index >= l:
+        #         res.append(cstr)
+        #         return
+        #     for i in dic[digits[index]]:
+        #         dfs(cstr + i, index + 1)
+        #
+        # if digits == '':
+        #     return []
+        #
+        # l = len(digits)
+        # res = []
+        #
+        # dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        #
+        # dfs("", 0)
+        #
+        # return res
 
 
 

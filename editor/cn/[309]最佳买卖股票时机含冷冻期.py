@@ -35,7 +35,7 @@ class Solution:
             dp_t.append(max(dp[0],dp[2]-prices[i]))
             #第i天没有持有股票且处于冷冻期，可以是：1）i-1天持有股票并卖出
             dp_t.append(dp[0] + prices[i])
-            # 第i天没有持有股票且处于非冷冻期，可以是：1）i-1没有持有股票且处于冷冻期 2）i-1天没有持有股票且处于非冷冻期
+            #第i天没有持有股票且处于非冷冻期，可以是：1）i-1没有持有股票且处于冷冻期 2）i-1天没有持有股票且处于非冷冻期
             dp_t.append(max(dp[1], dp[2]))
             dp=dp_t
         return max(dp[1],dp[2])

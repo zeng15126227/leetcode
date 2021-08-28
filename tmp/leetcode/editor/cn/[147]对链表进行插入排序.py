@@ -46,42 +46,29 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        def merge_sort(head, tail):
-            if not head:
-                return None
-            if head.next == tail:
-                head.next = None
-                return head
+        if not head:return None
 
-            slow = head
-            fast = head
-            while (fast!=tail):
-                slow = slow.next
-                fast = fast.next
-                if (fast!=tail):
-                    fast = fast.next
-            mid = slow
-            self.merge(merge_sort(head, mid), merge_sort(mid + 1, tail))
+        res = ListNode(float('-inf'))
+        res.next=head
+        last_sorted = res
 
-        def merge(list1, list2):
-            res_heah = ListNode(0)
-            l1 = list1
-            l2 = list2
-            res = res_heah
-            while l1 and l2:
-                if (l1.val <= l2.val):
-                    res.next = l1
-                    l1 = l1.next
-                else:
-                    res.next = l2
-                    l2 = l2.next
-                res = res.next
-            if (l1):
-                res.next = l1
-            if (l2):
-                res.next = l2
-            return res_heah.next
+        cur=head
+        while(cur):
+            if(cur.val>=last_sorted.val):
+                last_sorted = cur
+            else:
+                pre = res
+                while(not pre.next.val>cur.val):
+                    pre=pre.next
+                last_sorted.next = cur.next
+                cur.next=pre.next
+                pre.next=cur
+            cur = last_sorted.next
 
-        merge_sort(head, None)
+        return res.next
+
+
+
+
 
 # leetcode submit region end(Prohibit modification and deletion)

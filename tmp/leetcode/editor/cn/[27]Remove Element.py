@@ -66,4 +66,16 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
+        fast = 0
+        slow = 0
+
+        n = len(nums)
+        while fast<n:
+            if nums[fast]!=val:
+                nums[slow]=nums[fast]
+                slow+=1
+            fast+=1
+        return slow
+
+
 # leetcode submit region end(Prohibit modification and deletion)

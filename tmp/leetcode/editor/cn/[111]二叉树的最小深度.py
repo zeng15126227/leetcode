@@ -46,23 +46,47 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        # if not root:
+        #     return 0
+        #
+        # def dfs(root):
+        #
+        #     #单节点
+        #     if not root.left and not root.right:
+        #         return 1
+        #
+        #     min_dep = float('inf')
+        #     #只有存在叶子结点才比较
+        #     if root.left:
+        #         min_dep = min(dfs(root.left),min_dep)
+        #     if root.right:
+        #         min_dep = min(dfs(root.right), min_dep)
+        #
+        #     return min_dep+1
+        #
+        # return dfs(root)
+
         if not root:
             return 0
 
-        def dfs(root):
+        stack = []
+        stack.append(root)
+        res = 0
 
-            #单节点
-            if not root.left and not root.right:
-                return 1
+        while stack:
+            res += 1
 
-            min_dep = float('inf')
-            #只有存在叶子结点才比较
-            if root.left:
-                min_dep = min(dfs(root.left),min_dep)
-            if root.right:
-                min_dep = min(dfs(root.right), min_dep)
+            i = len(stack)
 
-            return min_dep+1
+            for i in range(i):
+                cur = stack.pop(0)
+                if not cur.left and not cur.right:
+                    return res
 
-        return dfs(root)
+                if cur.left:
+                    stack.append(cur.left)
+                if cur.right:
+                    stack.append(cur.right)
+
+
 # leetcode submit region end(Prohibit modification and deletion)

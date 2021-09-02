@@ -69,4 +69,7 @@ class Solution(object):
                 queue.append((node.right, depth + 1))
         return [rem[t].val for t in rem]
 
+
+
+
 # leetcode submit region end(Prohibit modification and deletion)

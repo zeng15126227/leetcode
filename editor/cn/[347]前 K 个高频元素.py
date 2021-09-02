@@ -1,5 +1,6 @@
 class Solution:
     def topKFrequent(self, nums: list, k: int) -> list:
+
         def insert(node, heap):
             if len(heap) < k:
                 heap.append(node)
@@ -20,6 +21,7 @@ class Solution:
             if min != idx:
                 heap[min], heap[idx] = heap[idx], heap[min]
                 adjust2down(min, heap)
+
 
         def adjust2up(idx, heap):
             if idx <0:

@@ -51,6 +51,9 @@ class Solution(object):
         while(i<length - 2):
             j=i+1
             k = length - 1
+            #剪枝，排序后如果第一个数>0则不可能
+            if nums[i]>0:
+                break
             while(j<k):
                 while (j < k and nums[i] + nums[j] + nums[k] > 0):
                     k = k - 1

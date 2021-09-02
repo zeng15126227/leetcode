@@ -73,12 +73,8 @@ class Solution(object):
             return False
 
         def backTrack(start,path:list):
-            if start==n and len(path)==4:
+            if len(path)==4:
                 res.append(".".join(path))
-            # if len(path)==3:
-            #     seg = param[start:]
-            #     if is_valid(seg):
-            #         backTrack(n, path + [seg])
             for end in range(start+1,n+1):
                if n-end > 3*(4-len(path)-1):
                    continue
@@ -97,5 +93,5 @@ class Solution(object):
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':
-    res = Solution().restoreIpAddresses("010010")
+    res = Solution().restoreIpAddresses("25525511135")
     print(res)

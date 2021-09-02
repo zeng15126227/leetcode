@@ -55,18 +55,32 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        pre = None
-        cur = head
-        while(cur):
-            next = cur.next
-            cur.next=pre
-            pre=cur
-            cur=next
-        return pre
 
+        if not head:return None
+        if not head.next:return head
+        res=ListNode(next=head)
+        pre=res
+        while pre.next and pre.next.next:
+            left = pre.next
+            right = pre.next.next
 
+            left.next=right.next
+            right.next=left
+            pre.next=right
 
-
+            pre = pre.next.next
+        return res.next
 
 
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    a = ListNode(1)
+    b = ListNode(2)
+    c = ListNode(3)
+    d = ListNode(4)
+
+    a.next=b
+    b.next=c
+    c.next=d
+
+    res = Solution().swapPairs(a)

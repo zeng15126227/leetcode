@@ -41,34 +41,63 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
 
+        # if not root:
+        #     return True
+        #
+        # up = float('inf')
+        # low = float('-inf')
+        #
+        # def check(node,up,low):
+        #     if node.val >= up  or node.val <= low :
+        #         return False
+        #     left=True
+        #     right=True
+        #     if node.left:
+        #         left = check(node.left,node.val,low)
+        #     if node.right:
+        #         right = check(node.right,up,node.val)
+        #     return left and right
+        #
+        # return check(root,up,low)
+
         if not root:
             return True
+        # 二叉搜索树中序遍历是从小到大，所以我们只需要不断验证下边界
 
-        up = float('inf')
-        low = float('-inf')
+        lower_boundary = float('-inf')
 
-        def check(node,up,low):
-            if node.val >= up  or node.val <= low :
-                return False
+        def dfs(root):
+            nonlocal lower_boundary
+            #空节点认为是二叉搜索树
             left=True
             right=True
-            if node.left:
-                left = check(node.left,node.val,low)
-            if node.right:
-                right = check(node.right,up,node.val)
+            #左
+            if root.left:
+                left = dfs(root.left)
+            #中
+            if root.val > lower_boundary:
+                lower_boundary = root.val
+            else:
+                return False
+            #右
+            if root.right:
+                right = dfs(root.right)
+
             return left and right
 
-        return check(root,up,low)
+        return dfs(root)
 
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    root = TreeNode(0)
-    b = TreeNode(-1)
+    root = TreeNode(2)
+    b = TreeNode(1)
     c = TreeNode(3)
-    root.right = b
+    root.left = b
+    root.right = c
     res = Solution().isValidBST(root)
     print(res)

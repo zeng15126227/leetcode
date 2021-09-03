@@ -5,20 +5,19 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
-    def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
+    def mergeTrees(self, root1: TreeNode, root2: TreeNode) -> TreeNode:
 
-        if not t1 and not t2:
-            return 0
-        if not t1:
-            return t2
-        if not t2:
-            return t1
+        if not root1 and not root2:
+            return None
+        if not root1:
+            return root2
+        if not root2:
+            return root1
 
-        tree1=[]
-        tree2=[]
-        queue=[]
-        queue.append(t1)
-        while queue:
-            cur = queue.pop(0)
-            if 
+        root = TreeNode(root1.val + root2.val)
+        root.left = self.mergeTrees(root1.left,root2.left)
+        root.right = self.mergeTrees(root1.right, root2.right)
+
+        return root

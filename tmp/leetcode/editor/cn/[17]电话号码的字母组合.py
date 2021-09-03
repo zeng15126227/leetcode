@@ -46,4 +46,44 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
+        # if digits == "": return []
+        # dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        # res=[]
+        # path=""
+        # n=len(digits)
+        # def backtracking(index):
+        #     nonlocal path
+        #     #终止条件
+        #     if len(path)==n:
+        #         res.append(path)
+        #         return
+        #     for i in dic[digits[index]]:
+        #         path+=i
+        #         backtracking(index+1)
+        #         path=path[:-1]
+        #
+        # backtracking(0)
+        # return res
+
+        if digits == "": return []
+        dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        queue=[]
+        for i in dic[digits[0]]:
+            queue.append(i)
+
+        index=1
+        start=0
+        while index<len(digits):
+            tmp = len(queue)
+            for x in queue[start:]:
+                for y in dic[digits[index]]:
+                    queue.append(x+y)
+            start = tmp
+            index+=1
+        return queue[start:]
+
+
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    res = Solution().letterCombinations("23")
+    print(res)

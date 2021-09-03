@@ -64,6 +64,7 @@ class Solution(object):
         res = []
         param:list = s
         n = len(param)
+        path=[]
 
         def is_valid(s):
             if len(s) > 1 and s[0] == "0":
@@ -72,21 +73,24 @@ class Solution(object):
                 return True
             return False
 
-        def backTrack(start,path:list):
+        def backTrack(start_idx):
             if len(path)==4:
                 res.append(".".join(path))
-            for end in range(start+1,n+1):
+            for end in range(start_idx+1,n+1):
+               #剪枝
                if n-end > 3*(4-len(path)-1):
                    continue
-               seg = param[start:end]
+               seg = param[start_idx:end]
                if is_valid(seg):
-                   backTrack(end,path+[seg])
+                   path.append(seg)
+                   backTrack(end)
+                   path.pop()
 
         #剪枝
         if len(s) > 3 * 4:
             return []
 
-        backTrack(0,[])
+        backTrack(0)
 
         return res
 

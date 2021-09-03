@@ -46,19 +46,17 @@ class Solution(object):
 
         n = len(nums)
         path = []
-        res = [[]]
+        res = []
         nums.sort()
 
         def dfs(start):
-            if start == n:
-                return
+            res.append(path[:])
             for i in range(start, n):
                 # 同层去重,前一个相同的元素在同一层
                 if nums[i] == nums[i - 1] and i > start:
                     continue
                 #添加状态
                 path.append(nums[i])
-                res.append(path[:])
                 dfs(i+1)
                 #撤销状态
                 path.pop()

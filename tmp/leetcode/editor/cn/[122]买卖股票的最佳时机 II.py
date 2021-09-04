@@ -50,20 +50,26 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        if not prices:
-            return 0
+        # if not prices:
+        #     return 0
+        #
+        # # dp[0][0] = 0
+        # # dp[0][1] = -prices[0]
+        # dp = [0, -prices[0]]
+        #
+        # for price in prices:
+        #     # 第i天不持有股票最大利润
+        #     # dp[i][0] = max(dp[i−1][0], dp[i−1][1] + prices[i])
+        #     dp[0] = max(dp[0], dp[1] + price)
+        #     # 第i天持有股票最大利润
+        #     dp[1] = max(dp[1], dp[0] - price)
+        #
+        # return dp[0]
 
-        # dp[0][0] = 0
-        # dp[0][1] = -prices[0]
-        dp = [0, -prices[0]]
-
-        for price in prices:
-            # 第i天不持有股票最大利润
-            # dp[i][0] = max(dp[i−1][0], dp[i−1][1] + prices[i])
-            dp[0] = max(dp[0], dp[1] + price)
-            # 第i天持有股票最大利润
-            dp[1] = max(dp[1], dp[0] - price)
-
-        return dp[0]
+        sum = 0
+        for i in range(1, len(prices)):
+            if prices[i] - prices[i - 1] > 0:
+                sum += prices[i] - prices[i - 1]
+        return sum
 
 # leetcode submit region end(Prohibit modification and deletion)

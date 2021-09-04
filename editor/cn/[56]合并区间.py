@@ -31,20 +31,23 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def merge(self, intervals: list) -> list:
-        if len(intervals)==0:
+        if len(intervals) == 0:
             return []
         intervals.sort(key=lambda x: x[0])
-        merge = []
-        merge.append(intervals[0])
-        for t in intervals[1:]:
-            if merge[-1][1]>=t[0]:
-                merge[-1][1] = max(t[1],merge[-1][1])
+        res = []
+        start = intervals[0][0]
+        end = intervals[0][1]
+        for i in range(1, len(intervals)):
+            if intervals[i][0] > end:
+                res.append([start, end])
+                start = intervals[i][0]
+                end = intervals[i][1]
             else:
-                merge.append(t)
-        return merge
-
+                end = max(end,intervals[i][1])
+        res.append([start,end])
+        return res
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    res = Solution().merge([[1,3],[2,6],[8,10],[15,18]])
+    res = Solution().merge([[1, 3], [2, 6], [8, 10], [15, 18]])
     print(res)

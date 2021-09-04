@@ -17,23 +17,23 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def maxSubArray(self, nums: list) -> int:
-        # cur_sum = 0
-        # max_sum = float('-inf')
-        # for n in nums:
-        #     cur_sum = n+cur_sum
-        #     if cur_sum > max_sum:
-        #         max_sum = cur_sum
-        #     if cur_sum<0:
-        #         cur_sum=0
-        # return max_sum
+        cur_sum = 0
+        max_sum = float('-inf')
+        for n in nums:
+            cur_sum = n+cur_sum
+            if cur_sum > max_sum:
+                max_sum = cur_sum
+            if cur_sum<0:
+                cur_sum=0
+        return max_sum
 
-        dp = 0
-        maxAns = nums[0]
-        for x in nums:
-            dp = max(dp + x, x)
-            maxAns = max(maxAns, dp);
-
-        return maxAns
+        # dp = 0
+        # maxAns = nums[0]
+        # for x in nums:
+        #     dp = max(dp + x, x)
+        #     maxAns = max(maxAns, dp);
+        #
+        # return maxAns
 
 
 # leetcode submit region end(Prohibit modification and deletion)

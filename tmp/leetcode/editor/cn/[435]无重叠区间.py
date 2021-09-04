@@ -49,7 +49,7 @@ class Solution(object):
         """
         #贪心
         if len(intervals) == 0: return 0
-        #按照有边界排序
+        #按照右边界排序，从左边开始遍历，选择尽可能小的右边界，给剩下区间留下更多空间
         intervals.sort(key=lambda x: x[1])
         flag=intervals[0][1]
         count = 1

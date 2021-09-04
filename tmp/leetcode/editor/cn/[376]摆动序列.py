@@ -62,4 +62,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        if len(nums)<=1:
+            return len(nums)
+
+        pre_diff=0
+
+        count=1
+
+        for i in range(1,len(nums)):
+            cur_diff=nums[i]-nums[i-1]
+            if pre_diff<=0 and cur_diff>0 or pre_diff>=0 and cur_diff<0:
+                count+=1
+                pre_diff = cur_diff
+
+        return count
+
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    res = Solution().wiggleMaxLength([4,5,5,4])
+    print(res)

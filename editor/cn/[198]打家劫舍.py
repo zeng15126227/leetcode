@@ -51,5 +51,5 @@ class Solution:
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    res = Solution().rob([0])
+    res = Solution().rob([2,3,1])
     print(res)

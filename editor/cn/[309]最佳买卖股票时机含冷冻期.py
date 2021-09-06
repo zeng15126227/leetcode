@@ -23,25 +23,27 @@ class Solution:
             return 0
 
         n = len(prices)
-        #三维数组i表示第i天，列有三种状态：
-        # f[i][0]:表示第i天持有股票,包括买入，卖出，持有三种情况
-        # f[i][1]:表示第i天没有持有股票且处于冷冻期
-        # f[i][2]:表示第i天没有持有股票处于非冷冻期
-        dp = [-prices[0], 0, 0]
-        #买入盈利记为-，卖出盈利记为+
-        for i in range(1,n):
-            dp_t=[]
-            #第i天持有股票，可以是：1）i-1天已经持有 2）第i天买入
-            dp_t.append(max(dp[0],dp[2]-prices[i]))
-            #第i天没有持有股票且处于冷冻期，可以是：1）i-1天持有股票并卖出
+        # f[i][0]:表示第i天持有股票,包括买入，持有两种情况
+        # f[i][1]:表示第i天卖出股票
+        # f[i][2]:表示第i天没有持有股票且处于冷冻期
+        # f[i][3]:表示第i天没有持有股票处于非冷冻期
+        dp = [-prices[0], 0, 0, 0]
+        # 买入盈利记为-，卖出盈利记为+
+        for i in range(1, n):
+            dp_t = []
+            # 第i天持有股票，可以是：1）i-1天已经持有 2）i-1天冷冻期第i天买入 3）i-1天非冷冻期第i天买入
+            dp_t.append(max(dp[0], dp[3] - prices[i],dp[2] - prices[i]))
+            # 第i天卖出股票
             dp_t.append(dp[0] + prices[i])
-            #第i天没有持有股票且处于非冷冻期，可以是：1）i-1没有持有股票且处于冷冻期 2）i-1天没有持有股票且处于非冷冻期
-            dp_t.append(max(dp[1], dp[2]))
-            dp=dp_t
-        return max(dp[1],dp[2])
+            # 第i天没有持有股票且处于冷冻期，可以是：1）i-1天持有股票并卖出
+            dp_t.append(dp[1])
+            # 第i天没有持有股票且处于非冷冻期，可以是：1）i-1没有持有股票且处于冷冻期 2）i-1天没有持有股票且处于非冷冻期
+            dp_t.append(max(dp[2], dp[3]))
+            dp = dp_t
+        return max(dp)
 
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
-    res = Solution().maxProfit([1,2,3,0,2])
+    res = Solution().maxProfit([4,2,1])
     print(res)

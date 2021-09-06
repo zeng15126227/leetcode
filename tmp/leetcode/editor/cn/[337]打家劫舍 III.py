@@ -51,7 +51,7 @@ class Solution(object):
 
         def my_rob(root):
             res = []
-
+            #res[0]:不偷该节点  res[1]:偷该节点
             if not root: return [0, 0]
 
             left = my_rob(root.left)

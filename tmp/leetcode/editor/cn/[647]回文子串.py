@@ -35,20 +35,45 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        if not s:
-            return
+        #中心扩展
+        # if not s:
+        #     return
+        #
+        # n = len(s)
+        # count = 0
+        # #2*n-1个回文中心
+        # for i in range(2 * n - 1):
+        #     # 回文中心左边界
+        #     l = i // 2
+        #     # 回文中心右边界
+        #     r = i // 2 + i % 2
+        #     while (0<l and r<n and s[l] == s[r]):
+        #         l -= 1
+        #         r += 1
+        #         count += 1
+        # return count
 
-        n = len(s)
-        count = 0
+        #动态规划
+        #dp[i][j]表示字符串从i到j是不是回文
+        dp=[[0]*len(s) for _ in s]
+        res=0
+        for i in range(len(s)-1, -1, -1):
+            for j in range(i,len(s)):
+                if s[i]==s[j]:
+                    #a、aa
+                    if j-i<2:
+                        dp[i][j]=True
+                        res+=1
+                    #acbca
+                    elif dp[i+1][j-1]:
+                        dp[i][j] = True
+                        res += 1
+                    else:dp[i][j]=False
+                else:
+                    dp[i][j] = False
 
-        for i in range(2 * n - 1):
-            l = i // 2
-            r = i // 2 + i % 2
-            while (0<l and r<n and s[l] == s[r]):
-                l -= 1
-                r += 1
-                count += 1
-        return count
+        return res
+
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':

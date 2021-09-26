@@ -83,6 +83,8 @@ class Solution(object):
             slow=slow.next
             fast=fast.next.next
 
+        #a = (n - 1)(b + c) + c
+        #从相遇点走到入环点+n-1圈环长=从其实位置走到入环点
         while(pre!=slow):
             pre=pre.next
             slow=slow.next

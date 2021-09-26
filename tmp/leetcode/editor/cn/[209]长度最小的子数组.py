@@ -56,21 +56,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        #窗口左边界
-        left=0
+        # 窗口左边界
+        left = 0
         sum = 0
         res = float('inf')
 
         for right in range(len(nums)):
-            sum+=nums[right]
-            while sum>=target:
-                res = min(res,right-left+1)
-                sum-=nums[left]
-                left+=1
+            sum += nums[right]
+            while sum >= target:
+                res = min(res, right - left + 1)
+                sum -= nums[left]
+                left += 1
 
         return res if res != float('inf') else 0
 
+
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':
-    res = Solution().minSubArrayLen(7,[2,3,1,2,4,3])
+    res = Solution().minSubArrayLen(7, [2, 3, 1, 2, 4, 3])
     print(res)

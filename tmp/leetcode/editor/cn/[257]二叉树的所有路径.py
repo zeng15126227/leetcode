@@ -35,18 +35,25 @@ class Solution(object):
         """
         res=[]
 
+        # def dfs(root,path):
+        #     if (not root):return
+        #     path+=str(root.val)
+        #     if not root.left and not root.right:
+        #         res.append(path)
+        #     else:
+        #         path+="->"
+        #     dfs(root.left,path)
+        #     dfs(root.right,path)
+
         def dfs(root,path):
-            if (not root):return
-            path+=str(root.val)
+            if not root:return
+            path.append(str(root.val))
             if not root.left and not root.right:
-                res.append(path)
-            else:
-                path+="->"
-            dfs(root.left,path)
-            dfs(root.right,path)
+                res.append("->".join(path))
+            dfs(root.left,path.copy())
+            dfs(root.right,path.copy())
 
-
-        dfs(root,"")
+        dfs(root,[])
 
         return res
 # leetcode submit region end(Prohibit modification and deletion)

@@ -65,4 +65,7 @@ class Solution(object):
         right = self.isBalanced(root.right)
 
         return cur and left and right
+
+
+
 # leetcode submit region end(Prohibit modification and deletion)

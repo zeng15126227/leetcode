@@ -5,7 +5,7 @@
 #  示例 1： 
 # 
 #  
-# 输入：nums = [1,2,3]
+# 输入：nums = [1,2,3,1]
 # 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 #  
 # 
@@ -57,9 +57,12 @@ class Solution(object):
             for i in range(n):
                 if used[i]==1:  #去重
                     continue
+                #添加元素
                 used[i]=1
                 path.append(nums[i])
+                #递归
                 backtracking()
+                #回溯
                 path.pop()
                 used[i]=0
 

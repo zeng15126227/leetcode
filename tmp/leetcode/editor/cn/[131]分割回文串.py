@@ -52,18 +52,18 @@ class Solution(object):
             return True
 
         def backtracking(start_idx):
+            #遍历完所有元素说明找到可行解
             if start_idx == n:
                 res.append(path[:])
                 return
             for i in range(start_idx,n):
                 if is_palindrome(s[start_idx:i+1]):
-                    path.append(s[start_idx:i+1])
-                    backtracking(i + 1)
-                    path.pop()
+                    path.append(s[start_idx:i+1]) #添加元素
+                    backtracking(i + 1) #递归
+                    path.pop() #回溯
 
 
         backtracking(0)
-        #return is_palindrome("bbab")
 
         return res
 

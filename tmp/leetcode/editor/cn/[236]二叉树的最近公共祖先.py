@@ -81,6 +81,7 @@ class Solution(object):
             elif left:      #还没有找到公共父亲节点
                 return left
             else:
+                #返回右子树或者False
                 return right
 
         return dfs(root,p,q)

@@ -72,7 +72,10 @@ class Solution(object):
                 for col in range(start_col, start_col + 3):
                     if board[row][col] == str(num): return False
             return True
-
+        #遍历所有格子
+        #每一个格子9种放法
+        #树宽度是9
+        #树深度是剩下非空格子数量
         def backreacking():
             for i in range(len(board)):
                 for j in range(len(board[0])):

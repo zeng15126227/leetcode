@@ -56,14 +56,14 @@ class Solution(object):
 
             if not root:
                 return
-
+            #左
             if root.left:
                 dfs(root.left)
-
+            #中
             if pre:
                 min_res = min(min_res,root.val-pre.val)
             pre = root
-
+            #右
             if root.right:
                 dfs(root.right)
 

@@ -20,17 +20,22 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        root=ListNode(0)
+        pre = None
         cur = head
-        while cur:
-            tmp = cur.next
-            cur.next=root.next
-            root.next=cur
-            cur=tmp
-        return root.next
+        while (cur):
+            # 暂存反转节点下一个节点
+            next = cur.next
+            #反转链表
+            cur.next = pre
+            # 更新pre节点
+            pre = cur
+            # 更新当前节点
+            cur = next
+        return pre
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == "__main__":
+
     a1 = ListNode(1)
     a2 = ListNode(2)
     a3 = ListNode(3)
@@ -46,3 +51,5 @@ if __name__ == "__main__":
     while res:
         print(res.val)
         res=res.next
+
+

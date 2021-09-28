@@ -56,19 +56,10 @@ class Solution(object):
             if not root:return True
             if root.val <= low or root.val>=up:
                 return False
-            left = isValid(root.left,root.val,low)
-            right = isValid(root.right,up,root.val)
+            left = isValid(root.left,root.val,low) if root.left else True
+            right = isValid(root.right,up,root.val) if root.right else True
             return left and right
 
+        isValid(root,up,low)
 
-
-
-
-
-
-        current_node_left = root.val > root.left.val if root.left else True
-        current_node_right = root.val < root.right.val if root.right else True
-
-
-        return current_node_left and current_node_right and left and right
 # leetcode submit region end(Prohibit modification and deletion)

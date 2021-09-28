@@ -47,11 +47,15 @@ class Solution(object):
         :type s: List[int]
         :rtype: int
         """
+        #小朋友需求
+        i = 0
         g.sort()
+        #饼干
+        j = 0
         s.sort()
-        i=0
-        j=0
+
         while(i<len(g) and j<len(s)):
+            #一旦满足需求，小朋友+1
             if(s[j]>=g[i]):
                 i+=1
             j+=1

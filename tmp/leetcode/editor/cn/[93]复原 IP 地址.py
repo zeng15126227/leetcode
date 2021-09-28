@@ -74,17 +74,16 @@ class Solution(object):
             return False
 
         def backTrack(start_idx):
-            if len(path)==4:
+            #四段ip分割完,同时数组遍历完
+            if len(path)==4 and start_idx == n:
                 res.append(".".join(path))
-            for end in range(start_idx+1,n+1):
-               #剪枝
-               if n-end > 3*(4-len(path)-1):
-                   continue
-               seg = param[start_idx:end]
-               if is_valid(seg):
-                   path.append(seg)
-                   backTrack(end)
-                   path.pop()
+            for i in range(start_idx, n):
+                if n - i-1 > 3 * (4 - len(path)-1): continue  # 剪枝，剩下的字符串大于允许的最大长度则跳过
+                p = s[start_idx:i + 1]  # 分割字符
+                if is_valid(p):  # 判断字符是否有效
+                    path.append(p)
+                    backTrack(i + 1)  # 寻找i+1为起始位置的子串
+                    path.pop()
 
         #剪枝
         if len(s) > 3 * 4:

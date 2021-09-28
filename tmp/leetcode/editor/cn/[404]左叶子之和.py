@@ -38,8 +38,9 @@ class Solution(object):
             if not root:
                 return 0
 
-            # 一个节点最多一个左叶子结点
+
             cur_value = 0
+            #左孩子是叶子节点
             if root.left and not root.left.left and not root.left.right:
                 cur_value = root.left.val
 

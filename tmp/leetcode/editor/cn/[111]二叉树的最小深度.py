@@ -40,53 +40,54 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
+
 class Solution(object):
     def minDepth(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        # if not root:
-        #     return 0
-        #
-        # def dfs(root):
-        #
-        #     #单节点
-        #     if not root.left and not root.right:
-        #         return 1
-        #
-        #     min_dep = float('inf')
-        #     #只有存在叶子结点才比较
-        #     if root.left:
-        #         min_dep = min(dfs(root.left),min_dep)
-        #     if root.right:
-        #         min_dep = min(dfs(root.right), min_dep)
-        #
-        #     return min_dep+1
-        #
-        # return dfs(root)
-
         if not root:
             return 0
 
-        stack = []
-        stack.append(root)
-        res = 0
+        def dfs(root):
 
-        while stack:
-            res += 1
+            # 单节点
+            if not root.left and not root.right:
+                return 1
 
-            i = len(stack)
+            min_dep = float('inf')
+            # 只有存在叶子结点才比较
+            if root.left:
+                min_dep = min(dfs(root.left), min_dep)
+            if root.right:
+                min_dep = min(dfs(root.right), min_dep)
 
-            for i in range(i):
-                cur = stack.pop(0)
-                if not cur.left and not cur.right:
-                    return res
+            return min_dep + 1
 
-                if cur.left:
-                    stack.append(cur.left)
-                if cur.right:
-                    stack.append(cur.right)
+        return dfs(root)
 
+        # if not root:
+        #     return 0
+        #
+        # stack = []
+        # stack.append(root)
+        # res = 0
+        #
+        # while stack:
+        #     res += 1
+        #
+        #     i = len(stack)
+        #
+        #     for i in range(i):
+        #         cur = stack.pop(0)
+        #         #剪枝
+        #         if not cur.left and not cur.right:
+        #             return res
+        #
+        #         if cur.left:
+        #             stack.append(cur.left)
+        #         if cur.right:
+        #             stack.append(cur.right)
 
 # leetcode submit region end(Prohibit modification and deletion)

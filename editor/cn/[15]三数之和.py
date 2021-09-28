@@ -23,23 +23,31 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def threeSum(self, nums: list) -> list:
+        #先排序
         nums.sort()
-        print(nums)
         n=len(nums)
         i=0
         k=n-1
         result=[]
+        #i下标最多n-3
         while i<k:
+            #j,k表示双指针起始位置
             j=i+1
             k = n - 1
             while j<k:
+                #要使三数之和变小，调整k
                 while nums[i]+nums[j]+nums[k]>0 and j<k:
                     k=k-1
+                #找到结果
                 if nums[i]+nums[j]+nums[k]==0 and j<k:
                     result.append([nums[i],nums[j],nums[k]])
+                #要使三数之和变大，调整j
+                #注意去重
                 j=j+1
                 while j < k and nums[j] == nums[j - 1]:
                     j = j + 1
+            # 移动第一个指针
+            # 注意去重
             i=i+1
             while i<k and nums[i]==nums[i-1]:
                 i=i+1

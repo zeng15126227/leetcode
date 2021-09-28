@@ -37,6 +37,7 @@ class Solution:
                 heap[min], heap[idx] = heap[idx], heap[min]
                 adjust2up((idx-1)//2, heap)
 
+        #词频统计
         from collections import Counter
         fre_list=[]
         c=Counter(nums)

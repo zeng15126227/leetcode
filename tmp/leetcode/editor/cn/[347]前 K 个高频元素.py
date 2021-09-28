@@ -42,6 +42,7 @@ class small_hat_heap():
         while idx >= 0:
             left = idx * 2 + 1
             right = idx * 2 + 2
+            #寻找左、右、父节点中最小的元素
             min_idx = idx
             if left < len(self.heap) and self.heap[left][1] < self.heap[min_idx][1]:
                 min_idx = left
@@ -58,6 +59,7 @@ class small_hat_heap():
         while idx <= len(self.heap)-1-1//2:
             left = idx * 2 + 1
             right = idx * 2 + 2
+            # 寻找左、右、父节点中最小的元素
             min_idx = idx
             if left < len(self.heap) and self.heap[left][1] < self.heap[min_idx][1]:
                 min_idx = left
@@ -73,9 +75,8 @@ class small_hat_heap():
     #向小顶堆添加元素
     def add(self, val):
         self.heap.append(val)
-        n = len(self.heap)
-        idx = n-1
-        # 从插入节点的夫节点向上调整小顶堆
+        idx = len(self.heap)-1
+        # 从插入节点的父节点向上调整小顶堆
         self.adjust2up((idx - 1) // 2)
 
     #删除小顶堆堆顶元素
@@ -99,12 +100,14 @@ class Solution(object):
         """
         heap = small_hat_heap()
 
+        #词频统计
         memo={}
         for i in nums:
             memo[i] = memo.get(i, 0) + 1
 
         for key, freq in memo.items():
             heap.add((key,freq))
+            #维护小顶堆元素个数为k个
             if heap.size() > k:
                 heap.pop()
 

@@ -1,7 +1,10 @@
+#求每个窗口内最大元素
+#维护一个单调递减队列，队列内保存可能成为最大值的元素
 class dequeue:
     def __init__(self):
         self.list = []
     #添加元素时，操作在队尾
+    #队列内小于新元素的元素出队列，之后新元素入队列
     def add(self, x):
         while self.list and self.list[-1] < x:
             self.list.pop()

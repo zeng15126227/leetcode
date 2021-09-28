@@ -36,6 +36,9 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 # Definition for a binary tree node.
+import collections
+
+
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -60,6 +63,7 @@ class Solution(object):
             if not root:
                 return
             if not root.left and not root.right:
+                #用第一次deep的更新判断是不是一层的最左元素
                 if deep > max_deep:
                     max_deep = deep
                     res = root.val
@@ -70,4 +74,13 @@ class Solution(object):
 
         return res
 
+
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    a = TreeNode(1)
+    b = TreeNode(2)
+    c = TreeNode(3)
+    a.left=b
+    a.right=c
+    res = Solution().findBottomLeftValue(a)
+    print(res)

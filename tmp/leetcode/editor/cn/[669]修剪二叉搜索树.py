@@ -70,13 +70,16 @@ class Solution(object):
         :type high: int
         :rtype: TreeNode
         """
-        if not root:return None
+        if not root: return None
+        # 小于下边界的遍历右子树
         if root.val < low:
-            return self.trimBST(root.right,low,high)
+            return self.trimBST(root.right, low, high)
+        # 大于上边界的遍历左子树
         if root.val > high:
-            return self.trimBST(root.left,low,high)
-        #在范围内的节点
-        root.left = self.trimBST(root.left,low,high)
+            return self.trimBST(root.left, low, high)
+        # 在范围内的节点
+        # 对有效范围内的节点重新连接左右孩子
+        root.left = self.trimBST(root.left, low, high)
         root.right = self.trimBST(root.right, low, high)
         return root
 

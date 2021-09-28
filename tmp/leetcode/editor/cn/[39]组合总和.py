@@ -57,29 +57,51 @@
 
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution(object):
-    def combinationSum(self, candidates:list, target):
+    def combinationSum(self, candidates: list, target):
         """
         :type candidates: List[int]
         :type target: int
         :rtype: List[List[int]]
         """
+        # candidates.sort()
+        # res = []
+        # path = []
+        #
+        # def backtracking(start_idx, target):
+        #     if target == 0:
+        #         res.append(path[:])
+        #         return
+        #     for i in range(start_idx, len(candidates)):
+        #         if candidates[i] > target: return
+        #         path.append(candidates[i])  # 处理
+        #         backtracking(i, target - candidates[i])  # 递归
+        #         path.pop()  # 回溯
+        #
+        # backtracking(0, target)
+        # return res
+
         candidates.sort()
         res = []
         path = []
-
-        def backtracking(start_idx, target):
-            if target == 0:
-                res.append(path[:])
+        def backtracking(start_idx,target):
+            #终止条件
+            if target<0:
                 return
-            for i in range(start_idx, len(candidates)):
-                if candidates[i] > target: return
-                path.append(candidates[i])  # 处理
-                backtracking(i, target - candidates[i])  # 递归
-                path.pop()  # 回溯
+            if target==0:
+                res.append(path.copy())
+                return
+            #遍历本层
+            for i in range(start_idx,len(candidates)):
+                path.append(candidates[i]) #添加元素
+                backtracking(i+1,target-candidates[i]) #递归
+                path.pop() #回溯
 
-        backtracking(0, target)
+        backtracking(0,target)
         return res
+
+
+
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':
-    res = Solution().combinationSum([2,3,5],8)
+    res = Solution().combinationSum([2, 3, 5], 8)
     print(res)

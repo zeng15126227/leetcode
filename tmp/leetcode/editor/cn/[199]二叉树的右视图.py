@@ -59,9 +59,11 @@ class Solution(object):
         rem = {}
 
         queue = collections.deque()
+        #元素，层数
         queue.append((root, 0))
         while (queue):
             node, depth = queue.popleft()
+            #<层数,元素>保存在map中，因为每一层遍历是从左到右，所以最终map里保存的是最右边元素
             rem[depth] = node
             if node.left:
                 queue.append((node.left, depth + 1))

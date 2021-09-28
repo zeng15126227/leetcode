@@ -46,10 +46,14 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
+        #先排序
         nums.sort()
         n=len(nums)
         res=[]
 
+        #固定两个指针i，j
+        #第一个指针最多n-4
+        #第二个指针最多n-3
         i=0
         while i < n-3:
             j=i+1

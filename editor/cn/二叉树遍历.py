@@ -100,7 +100,7 @@ class Solution:
         while stack:
             cur = stack.pop()
             self.res.append(cur.val)
-            # 子节点入栈顺序 左--右，最后把结果反转，本质是前序遍历的反转
+            # 子节点入栈顺序 左--右，最后把结果反转，本质是中序遍历的反转
             if cur.left:
                 stack.append(cur.left)
             if cur.right:

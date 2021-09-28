@@ -61,15 +61,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # res = float('-inf')
+        # #dp[i]表示以第i个元素结尾的最大和子序列
+        # dp=[0]*(len(nums)+1)
+        # for i in range(1,len(dp)):
+        #     dp[i] = max(nums[i-1],dp[i-1]+nums[i-1])
+        #     res = max(res,dp[i])
+        #
+        # return res
+
+        sum = 0
         res = float('-inf')
-        #dp[i]表示以第i个元素结尾的最大和子序列
-        dp=[0]*(len(nums)+1)
-        for i in range(1,len(dp)):
-            dp[i] = max(nums[i-1],dp[i-1]+nums[i-1])
-            res = max(res,dp[i])
+        for i in range(len(nums)):
+            sum += nums[i]
+            res=max(res,sum)
+            if sum < 0:
+                sum = 0
 
         return res
+
+
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':
-    res = Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
+    res = Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
     print(res)

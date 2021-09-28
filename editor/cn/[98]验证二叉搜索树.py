@@ -72,20 +72,15 @@ class Solution:
 
         def dfs(root):
             nonlocal lower_boundary
-            #空节点认为是二叉搜索树
-            left=True
-            right=True
             #左
-            if root.left:
-                left = dfs(root.left)
+            left = dfs(root.left) if root.left else True
             #中
             if root.val > lower_boundary:
                 lower_boundary = root.val
             else:
                 return False
             #右
-            if root.right:
-                right = dfs(root.right)
+            right = dfs(root.right) if root.right else True
 
             return left and right
 

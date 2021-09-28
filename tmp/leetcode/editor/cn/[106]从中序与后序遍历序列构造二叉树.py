@@ -42,11 +42,14 @@ class Solution(object):
         def mybuildTree(i: list, p: list):
             if not p:
                 return
+            # 后序遍历最后一个节点是根
             root = TreeNode(p[-1])
+            # 跟节点在中序遍历中的下标
             idx = i.index(p[-1])
             # 后序用长度分割，中序用下标分割
             root.left = mybuildTree(i[:idx], p[:idx])
-            root.right = mybuildTree(i[idx+1:], p[idx:-1])
+            root.right = mybuildTree(i[idx + 1:], p[idx:-1])
             return root
-        return mybuildTree(inorder,postorder)
+
+        return mybuildTree(inorder, postorder)
 # leetcode submit region end(Prohibit modification and deletion)

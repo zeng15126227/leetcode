@@ -42,8 +42,10 @@ class Solution(object):
         n = len(nums)
 
         def backtracking(start_idx):
+            #要求子集元素大于2个
             if len(path) > 1:
                 res.append(path[:])
+            #记录每层使用过的元素
             memo=set()
             for i in range(start_idx, n):
                 #去重
@@ -58,6 +60,8 @@ class Solution(object):
 
         backtracking(0)
         return res
+
+
 
 
 # leetcode submit region end(Prohibit modification and deletion)
